@@ -1,0 +1,12 @@
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            applicationId    : "com.example.liying.wheelmaindemo",
+            versionCode      : 1,
+            versionName      : "1.1.1",
+            minSdkVersion    : 16,
+            targetSdkVersion : 26
+    ]
+
+}

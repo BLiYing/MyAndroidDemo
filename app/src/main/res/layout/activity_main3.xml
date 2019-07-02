@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.liying.activity.Main3Activity">
+    <com.example.view.TestPathView
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.example.view.TestPathView>
+    <com.example.view.SearchView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+   <!-- <com.example.view.ZoomImageViewCopy
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
+        android:src="@mipmap/timg"
+        />-->
+
+    <com.example.utils.ZoomImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
+        android:src="@mipmap/timg"
+        />
+
+</LinearLayout>

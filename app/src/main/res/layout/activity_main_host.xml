@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.liying.activity.Main5Activity">
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="popupWindow使用例子" />
+
+        <Button
+            android:id="@+id/main1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试通知" />
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str2" />
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义手势缩放ImageView" />
+
+        <Button
+            android:id="@+id/main4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下滑或上滑判断" />
+
+        <Button
+            android:textAllCaps="false"
+
+            android:id="@+id/main5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Html调用相机" />
+
+
+
+        <Button
+            android:textAllCaps="false"
+
+            android:id="@+id/main6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义view" />
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义翻书效果" />
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义指示牌" />
+
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -76,6 +76,13 @@
             android:layout_height="wrap_content"
             android:text="自定义指示牌" />
 
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IPC机制(进程间通信)" />
+
 
         <TextView
             android:id="@+id/tv"
@@ -83,6 +90,8 @@
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textSize="20sp" />
+
+
 
     </LinearLayout>
 </ScrollView>

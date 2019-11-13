@@ -122,7 +122,7 @@ public class Main5Activity extends AppCompatActivity {
             }
         });
 
-        wv.loadUrl("file:///android_asset/index.html");
+        wv.loadUrl("file:///android_asset/test_camera.html");
         final Handler mHandler = new Handler();
         //webview增加javascript接口，监听html页面中的js点击事件
         wv.addJavascriptInterface(new Object(){

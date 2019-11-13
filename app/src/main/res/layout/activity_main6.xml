@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context="com.example.liying.activity.Main3Activity">
 
-    <HorizontalScrollView
+    <!--<HorizontalScrollView
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -14,13 +14,19 @@
 
 
 
-            <com.example.view.TestDrawLineView
+            <com.example.view.DrawSeekbarView
                 android:id="@+id/testPv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:visibility="visible"></com.example.view.TestDrawLineView>
+                android:visibility="visible"/>
 
-    </HorizontalScrollView>
+    </HorizontalScrollView>-->
 
+    <com.example.view.DrawSeekbarView
+        android:id="@+id/testPv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="visible"/>
 </RelativeLayout>

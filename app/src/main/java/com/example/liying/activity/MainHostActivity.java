@@ -38,6 +38,8 @@ public class MainHostActivity extends AppCompatActivity {
     Button main6;
     @BindView(R.id.main7)
     Button main7;
+    @BindView(R.id.main9)
+    Button main9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class MainHostActivity extends AppCompatActivity {
         return px;
     }
 
-    @OnClick({R.id.main1, R.id.main2, R.id.main3, R.id.main4, R.id.main, R.id.main5, R.id.main6,R.id.main7,R.id.main8})
+    @OnClick({R.id.main1, R.id.main2, R.id.main3, R.id.main4, R.id.main, R.id.main5, R.id.main6,R.id.main7,R.id.main8,R.id.main9})
     public void onViewClicked(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -104,6 +106,10 @@ public class MainHostActivity extends AppCompatActivity {
                 break;
             case R.id.main8:
                 intent.setClass(this, Main8Activity.class);
+                startActivity(intent);
+                break;
+            case R.id.main9:
+                intent.setClass(this, Main9Activity.class);
                 startActivity(intent);
                 break;
             default:

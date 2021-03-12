@@ -1,6 +1,8 @@
 package com.example.liying.activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +13,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.utils.NotificationBuildUtil;
+import com.example.view.MyView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +45,11 @@ public class MainHostActivity extends AppCompatActivity {
     @BindView(R.id.main9)
     Button main9;
 
+    private boolean isConnect;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +68,9 @@ public class MainHostActivity extends AppCompatActivity {
 
             tv.setText(snSB);
         }
+//        String token = "RwFTnY/cPSugzpnl1/lef8oagh4UemBImB8VJN3wgG3ptgQzE4BlGoOAo4opEl4/nHZnq49KH5cMU9OEov43QseJ0/5XJxaZ";
+//        connect(token);
+
     }
 
     public int convertDP2PX(float dpValue) {
@@ -67,7 +79,8 @@ public class MainHostActivity extends AppCompatActivity {
         return px;
     }
 
-    @OnClick({R.id.main1, R.id.main2, R.id.main3, R.id.main4, R.id.main, R.id.main5, R.id.main6,R.id.main7,R.id.main8,R.id.main9})
+    @OnClick({R.id.main1, R.id.main2, R.id.main3, R.id.main4, R.id.main, R.id.main5, R.id.main6,R.id.main7,R.id.main8,R.id.main9
+            ,R.id.main10,R.id.main11})
     public void onViewClicked(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -76,8 +89,8 @@ public class MainHostActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.main1:
+//                onButtonClick();
                 NotificationBuildUtil.showNotification(this, "1", "1");
-                break;
             case R.id.main2:
                 intent.setClass(this, Main2Activity.class);
                 startActivity(intent);
@@ -112,9 +125,46 @@ public class MainHostActivity extends AppCompatActivity {
                 intent.setClass(this, Main9Activity.class);
                 startActivity(intent);
                 break;
+            case R.id.main10:
+                sendShareMessage();
+                break;
+            case R.id.main11:
+                /*if (isConnect) {
+                    intent.setClass(this, SubConversationListActivity.class);
+                    startActivity(intent);
+                } else {
+                    ToastUtil.show("等待连接成功");
+                }*/
+                break;
             default:
                 break;
         }
     }
 
+    private int count = 5000;
+    void onButtonClick(){
+        for (int i = 0; i < 100000; i++) {
+            View view = new MyView(this,count);
+            count++;
+        }
+    }
+
+    //发送分享的信息
+    private void sendShareMessage() {
+        String packageName = "com.shiketongxun.rongxin.lite";
+        Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);//主要用于判断用户是否安装了要分享过去的APP
+        if (intent != null) {
+            Intent share = new Intent();
+            share.setClassName(packageName, "com.yuntongxun.rongxin.lite.ui.PreStartActivity");
+            share.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            share.setAction(Intent.ACTION_SEND);
+            share.setType("text/plain"); //分享的是文本类型
+            share.putExtra(Intent.EXTRA_TEXT, "https://blog.csdn.net/oudetu/article/details/78443826");//分享出去的内容
+//            startActivity(Intent.createChooser(share, ""));
+            startActivity(share);
+            getSupportFragmentManager().popBackStack();
+        } else {
+            Toast.makeText(getApplicationContext(), "你还没安装该应用，请先安装", Toast.LENGTH_LONG).show();
+        }
+    }
 }

@@ -10,6 +10,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a'//, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     buildTypes {
         release {
@@ -25,8 +29,6 @@ android {
     }
 
 
-
-
 }
 
 dependencies {
@@ -39,16 +41,27 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.0.1'
 
 
-    implementation 'com.android.support:design:26.0.1'
+    implementation 'com.android.support:design:28.0.0'
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
-    implementation 'com.jakewharton:butterknife:8.5.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.0'
+
     implementation 'com.yanzhenjie:permission:1.0.8'
-    implementation 'org.jetbrains:annotations-java5:15.0'
-    implementation (name: 'alipaySdk-15.6.5-20190718211159-noUtdid', ext: 'aar')
+//    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation(name: 'alipaySdk-15.6.5-20190718211159-noUtdid', ext: 'aar')
 
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
 //    implementation 'com.github.open-android:IjkPlayer:1.0.0'
+
+    implementation 'com.hjq:toast:8.0'
+
+//    implementation project(':IMLib')
+//    implementation project(':IMKit')
+
+    implementation 'com.tencent.imsdk:tuikit:4.6.101'
+
+
+
 }

@@ -83,6 +83,19 @@
             android:layout_height="wrap_content"
             android:text="IPC机制(进程间通信)" />
 
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="调起时刻通讯app分享页面" />
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/main11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="融云 私人聚合会话" />
 
         <TextView
             android:id="@+id/tv"

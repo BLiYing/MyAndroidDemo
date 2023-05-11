@@ -12,6 +12,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Region;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Trace;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -626,8 +627,13 @@ public class BookPageView extends View {
     private void drawPathBContent(Canvas canvas, Path pathA){
         canvas.save();
         canvas.clipPath(pathA);//裁剪出A区域
-        canvas.clipPath(getPathC(),Region.Op.UNION);//裁剪出A和C区域的全集
-        canvas.clipPath(getPathB(), Region.Op.REVERSE_DIFFERENCE);//裁剪出B区域中不同于与AC区域的部分
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            canvas.clipPath(getPathC());//裁剪出A和C区域的全集
+            canvas.clipPath(getPathB());//裁剪出B区域中不同于与AC区域的部分
+        }else {
+            canvas.clipPath(getPathC(), Region.Op.UNION);//裁剪出A和C区域的全集
+            canvas.clipPath(getPathB(), Region.Op.REVERSE_DIFFERENCE);//裁剪出B区域中不同于与AC区域的部分
+        }
         canvas.drawBitmap(pathBContentBitmap, 0, 0, null);
 
         drawPathBShadow(canvas);
@@ -690,7 +696,11 @@ public class BookPageView extends View {
     private void drawPathCContent(Canvas canvas, Path pathA){
         canvas.save();
         canvas.clipPath(pathA);
-        canvas.clipPath(getPathC(), Region.Op.REVERSE_DIFFERENCE);//裁剪出C区域不同于A区域的部分
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            canvas.clipPath(getPathC());
+        }else {
+            canvas.clipPath(getPathC(), Region.Op.REVERSE_DIFFERENCE);//裁剪出C区域不同于A区域的部分
+        }
 //        canvas.drawPath(getPathC(),pathCPaint);
 
         float eh = (float) Math.hypot(f.x - e.x,h.y - f.y);
